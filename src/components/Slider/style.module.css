@@ -1,0 +1,14 @@
+.slick-prev,
+.slick-next {
+  width: auto !important;
+  height: auto !important;
+}
+
+
+
+@media (max-width: 520px){
+  .slick-arrow{
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
