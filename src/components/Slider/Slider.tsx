@@ -1,10 +1,8 @@
+import React from "react";
 import Slider from "react-slick";
-
-import styles from "./style.module.css";
-import "./style.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slide from "./Slide/Slide";
+import Slide from "./Slide";
 import {
   Bone,
   BookHeart,
@@ -32,19 +30,19 @@ const methods = [
         name: "Корм и лакомства",
         text: "Сухой и влажный корм, витамины, лакомства",
         isActive: true,
-        icon: <Ham size={32} color="#FF0004" />,
+        icon: <Ham color="#FF0004" className="sm:w-6 sm:h-6 md:w-8 md:h-8"/>,
       },
       {
         name: "Временная передержка",
         text: "Приютить животное на время поиска хозяев",
         isActive: false,
-        icon: <Timer size={32} color="#FF0004" />,
+        icon: <Timer color="#FF0004"  className="sm:w-6 sm:h-6 md:w-8 md:h-8"/>,
       },
       {
         name: "Лечение",
         text: "Помощь в оплате ветеринарных услуг",
         isActive: false,
-        icon: <BriefcaseMedical size={32} color="#FF0004" />,
+        icon: <BriefcaseMedical color="#FF0004"  className="sm:w-6 sm:h-6 md:w-8 md:h-8"/>,
       },
     ],
   },
@@ -130,17 +128,17 @@ export default function MySlider() {
     slidesToShow: 1,  
     slidesToScroll: 1,
     nextArrow: (
-      <div className={styles.arrow} style={{ width: "100%", height: "100%" }}>
+      <div style={{ width: "100%", height: "100%" }}>
         <ChevronRight size={35} color="#3c2e24" />
       </div>
     ),
     prevArrow: (
-      <div className={styles.arrow} style={{ width: "auto", height: "auto" }}>
+      <div style={{ width: "auto", height: "auto" }}>
         <ChevronLeft size={35} color="#3c2e24" />
       </div>
     ),
-  
   };
+
   return (
     <div className='container'  style={{ width: "90%", margin: "0 auto", marginTop: "55px" }}>
       <Slider {...settings}>

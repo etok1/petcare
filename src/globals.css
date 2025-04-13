@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .button {
+    @apply font-comfortaa bg-greenCustom text-white 
+           rounded-lg px-6 py-2 flex items-center justify-center 
+           gap-2 text-sm font-medium transition-all duration-300 ease-out 
+           hover:bg-pastelGreen hover:shadow-lg active:scale-95;
+}
+ 
+}
+
+@layer components{
+  .filterInactiveBtn{
+    @apply bg-transparent border-2 border-grey text-grey rounded-full cursor-pointer text-sm font-medium px-3 py-1 transition-all hover:border-greenCustom hover:text-greenCustom;
+  }
+  .filterActiveBtn{
+    @apply bg-transparent border-2 border-greenCustom text-greenCustom rounded-full cursor-pointer text-sm font-medium px-3 py-1 hover:border-greenCustom
+  }
+}
+

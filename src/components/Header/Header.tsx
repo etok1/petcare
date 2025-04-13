@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import styles from "./style.module.css";
-import Desktop from "./Desktop/Desktop";
-import Mobile from "./Mobile/Mobile";
+import React from 'react';
+import Desktop from "./Desktop";
+import Mobile from "./Mobile";
 import { useEffect, useState } from "react";
 
 export default function Header() {
@@ -19,9 +19,9 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={styles.header}>
+    <header className=' font-comfortaa relative top-0 left-0 py-3 px-4 flex items-center justify-between z-[10000] bg-desktop border-b border-gray-300'>
       <NavLink to="/">
-        <img src="/logo.png" alt="logo" />
+        <img src="/logo.webp" alt="logo" loading="lazy"  />
       </NavLink>
      {windowWidth > 950 ?  <Desktop/> : <Mobile/>}
     </header>
