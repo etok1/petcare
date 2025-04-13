@@ -2,6 +2,7 @@ import React from 'react';
 import Goal from './Goal';
 import MySlider from "./Slider/Slider";
 import { Flower2, Heart, Earth, Sun } from "lucide-react";
+import { NavLink } from 'react-router-dom';
 
 const goals = [
   {
@@ -25,20 +26,17 @@ const goals = [
 export default function Home() {
   return (
     <div style={{padding: '15px'}}>
-      <section className='my-[50px] mx-auto p-6 max-w-[90%] w-full max-h-[500px] h-full bg-greenCustom flex items-start gap-12 rounded-md md:w-fill'>
-      <div className="min-w-[400px] w-[400px] h-[420px] flex-shrink-0">
-        <img
-          src="/images/pets1.webp"
-          alt="pets1"
-          width="400"
-          height="420"
-          className="rounded-md w-full h-full object-cover"
-          fetchPriority="high"
-        />
-      </div>
+      <section className='my-[50px] mx-auto p-6 max-w-[90%] w-full h-full bg-greenCustom flex flex-col items-start gap-8 rounded-md lg:flex-row md:w-fill md:gap-12'>
+          <img
+            src="/images/pets1.webp"
+            alt="pets1"
+            width="100%"
+            className="rounded-md w-full h-[300px] sm:h-[400px] object-cover"
+            fetchPriority="high"
+          />
         <div className=''>
           <h1 className='text-[clamp(12px, 2vw, 32px)] text-white uppercase font-bold md:text-3xl lg:text-4xl xl:text-[55px]'>Наша миссия</h1>
-          <p className="mt-6 text-[clamp(10px,1.7vw,20px)] text-white leading-[1.4] md:leading-[1.6] lg:text-base">            <strong className='font-bold'>
+          <p className="text-[clamp(10px,1.7vw,20px)] text-white leading-[1.4] mt-3 md:leading-[1.6] lg:text-base"><strong className='font-bold'>
               Наша миссия — помочь животным, которым нужна забота и внимание.
             </strong>{" "}
             Мы стремимся поддерживать приюты для животных, предоставлять им
@@ -51,21 +49,21 @@ export default function Home() {
         </div>
       </section>
       <section className='my-[100px]'>
-            <div className="w-1/2 p-8 flex flex-col justify-center space-y-6 text-center bg-green-100 mx-auto">
-              <blockquote className="relative text-xl font-semibold text-gray-800">
-                <div className="absolute text-6xl text-greenCustom opacity-20 top-0 left-0">"</div>
-                <div className="relative z-10 leading-10">
+            <div className="w-full sm:w-1/2 p-8 flex flex-col justify-center space-y-6 text-center bg-green-100 mx-auto">
+              <blockquote className="relative text-sm sm:text-lg font-semibold text-gray-800">
+                <div className="absolute text-4xl md:text-6xl text-greenCustom opacity-20 top-0 left-[-10px]">"</div>
+                <div className="relative z-10 leading-5 sm:leading-6">
                   <span className="bg-pastelGreen text-white px-2 py-1 rounded">
                     Спасая одно животное
                   </span>
                   , ты не изменишь весь мир,<br/> 
                   но для него изменится целый мир.
                 </div>
-                <div className="absolute text-6xl text-greenCustom opacity-20 bottom-0 right-0">"</div>
+                <div className="absolute text-4xl md:text-6xl text-greenCustom opacity-20 bottom-0 right-0">"</div>
               </blockquote>
               
-              <button className="button w-fit self-center py-3">
-                Помочь животным
+              <button className="button w-fit self-center py-3 text-xs sm:text-sm">
+                <NavLink to='/pets'>Помочь животным</NavLink>
               </button>
             </div>
       </section>

@@ -26,7 +26,7 @@ const handleClick = () => {
       <nav className="flex flex-col items-center">
         <ul className="flex flex-col items-center gap-2.5 font-poppins">
           <li>
-          <NavLink to="/" className="relative text-sm font-medium text-black transition-colors duration-300 hover:text-green-700 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-full after:h-[2px] after:bg-greenCustom after:opacity-0 after:transition-opacity after:duration-500 hover:after:opacity-100">
+          <NavLink to="/" onClick={() => setIsOpen(false)} className="relative text-sm font-medium text-black transition-colors duration-300 hover:text-green-700 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-full after:h-[2px] after:bg-greenCustom after:opacity-0 after:transition-opacity after:duration-500 hover:after:opacity-100">
           Главная
         </NavLink>
           </li>
