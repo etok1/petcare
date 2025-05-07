@@ -59,7 +59,7 @@ useEffect(() => {
         }}>
             <Form/>
             <section className='mt-[50px]'>
-                <h1 className='text-xl sm:text-2xl'>{comments.length} {comments.length === 1 ? 'отзыв' : 'отзыва'}</h1>
+                <h1 className='text-xl text-grey sm:text-2xl'>{comments.length} {comments.length === 1 ? 'отзыв' : 'отзыва'}</h1>
                 {loading && <p className='text-base font-poppins'>Загружается! Секунду!</p>}
                 <div className='w-full mt-11 flex flex-wrap justify-center gap-[50px]'>
                     {comments.slice(0, visibleComments).map((review:any, index: number) => (

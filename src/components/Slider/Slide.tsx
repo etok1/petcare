@@ -18,7 +18,7 @@ interface SlideProp {
 export default function Slide({ title, color, reasons }: SlideProp) {
   return (
     <div className='flex flex-col items-center gap-[25px] lg:max-w-full !important lg:w-[80%] !important lg:justify-self-center'>
-      <h3 className="text-base font-bold mb-7 lg:text-xl">{title}</h3>
+      <h3 className="text-base text-grey font-bold mb-7 lg:text-xl">{title}</h3>
       {reasons.map((reason) => (
         <Row
           color={color}

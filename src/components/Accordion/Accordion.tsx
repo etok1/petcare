@@ -22,7 +22,7 @@ export function Accordion({ data }: { data: { question: string; answer: string }
             onToggle={toggle}
           />
         ))}
-        <p className='self-end [font-size: clamp(12px, 1.5vw, 18px)] [ line-height: clamp(16px, 1.5vw, 26px)] font-extrabold mt-3' >
+        <p className='self-end text-grey [font-size: clamp(12px, 1.5vw, 18px)] [ line-height: clamp(16px, 1.5vw, 26px)] font-extrabold mt-3' >
           Остались вопросы? Напишите
           <Link className='no-underline text-greenCustom' to='#' target="blank"> нам</Link>
         </p>

@@ -47,7 +47,7 @@ export default function CardPet({item, img}: CardPetProps) {
         <div className='mt-3 sm:mt-4'>
             <ol className='flex flex-wrap items-start gap-2 capitalize'>
               {item?.features?.map((feature) => (
-                <li key={feature} className='bg-gray-200 py-[2px] px-[5px] rounded-full text-[7px] font-medium sm:text-xs sm:py-1 sm:px-2 md:py-[6px] md:px-4 md:text-sm'>{feature}</li>
+                <li key={feature} className='bg-gray-200 text-grey py-[2px] px-[5px] rounded-full text-[7px] font-medium sm:text-xs sm:py-1 sm:px-2 md:py-[6px] md:px-4 md:text-sm'>{feature}</li>
               ))}
             </ol>
         </div>

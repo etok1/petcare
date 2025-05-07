@@ -69,7 +69,7 @@ export default function Home() {
       </section>
       <section className='mt-[150px] flex flex-col items-center'>
         <h2 className='text-lg text-center font-extrabold text-brown sm:text-2xl md:text-3xl lg:text-[40px]'>Чего мы хотим</h2>
-        <p className='mt-4 text-center max-w-[589px] w-full text-xs font-normal leading-5 sm:text-sm md:text-base lg:text-lg'>
+        <p className='mt-4 text-grey text-center max-w-[589px] w-full text-xs font-normal leading-5 sm:text-sm md:text-base lg:text-lg'>
           Мы хотим создать общество, в котором каждый питомец, независимо от его
           прошлого, получит шанс на лучшее будущее. Мы стремимся:
         </p>
@@ -108,7 +108,7 @@ export default function Home() {
       </section>
       <section className='mt-[150px] flex flex-col items-center'>
         <h4 className='text-lg text-brown text-center font-bold sm:text-2xl md:text-2xl lg:text-3xl xl:text-[40px]'>Чем можно помочь приютам?</h4>
-        <p className='mt-4 text-center max-w-[589px] w-full text-xs font-normal leading-5 sm:text-sm md:text-base lg:text-lg'>
+        <p className='mt-4 text-grey text-center max-w-[589px] w-full text-xs font-normal leading-5 sm:text-sm md:text-base lg:text-lg'>
           Каждая помощь важна! Выберите удобный для вас способ поддержать
           животных из приютов.
         </p>

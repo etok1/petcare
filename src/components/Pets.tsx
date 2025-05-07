@@ -165,7 +165,7 @@ export default function Pets() {
           </aside>
         </div>
         <div className="flex flex-col gap-6">
-          <h3 className='text-lg'>Показано {Math.min(visibleItems, filteredItems.pets.length)} из {filteredItems.pets.length} животных</h3>
+          <h3 className='text-lg text-grey'>Показано {Math.min(visibleItems, filteredItems.pets.length)} из {filteredItems.pets.length} животных</h3>
         {filteredItems.pets.length > 0 && filteredItems.pets.slice(0, visibleItems).map((pet) => {
           const petImage = images[pet.id - 1]; 
           return (

@@ -82,12 +82,12 @@ export default function Form() {
       }
     }
 
-    const labelFormStyles = 'block mb-2 text-sm md:text-base'
+    const labelFormStyles = 'block mb-2 text-grey text-sm md:text-base'
 
     return (
         <>
         <form className="w-11/12 self-center font-inter my-12 bg-white rounded-lg shadow-md p-6" onSubmit={submitForm}>
-          <h2 className="text-xl font-bold mb-6 md:text-2xl">Оставить отзыв</h2>
+          <h2 className="text-xl text-grey font-bold mb-6 md:text-2xl">Оставить отзыв</h2>
           <div className="w-full flex items-center gap-5 mb-4">
             <div className="w-full">
               <label className={labelFormStyles}>Ваше имя*</label>
@@ -112,19 +112,19 @@ export default function Form() {
             <textarea
               name="content"
               value={newReview.content}
-              className="w-full h-14 p-2 border border-form-border rounded" 
+              className="w-full h-14 p-2 border border-form-border rounded text-grey bg-white" 
               maxLength={500}
               required 
               onChange={(e) => handleChange('content', e.target.value)} 
             />
-            <span className="text-xs">
+            <span className="text-xs text-grey">
               {newReview.content.length}/{500}
             </span>
           </div>
           <button type="submit" className="mt-6 text-xs font-comfortaa button sm:text-sm md:text-base">
             Отправить отзыв
           </button>
-          <p className="mt-2.5 text-[10px] text-gray sm:text-xs">* - обязательно к заполнению</p>
+          <p className="mt-2.5 text-[10px] text-grey sm:text-xs">* - обязательно к заполнению</p>
         </form>
       </>
     )

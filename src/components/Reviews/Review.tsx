@@ -33,19 +33,19 @@ export default function Review ({review}:ReviewProps) {
       <article className="w-full min-h-[250px] font-['Inter',serif] border border-[#0000001e] p-4 rounded-md shadow-md md:w-[40%] lg:w-[45%]">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[15px]">{review.author}</h2>
+          <h2 className="text-[15px] text-grey">{review.author}</h2>
           <div className="mt-1 w-full flex items-center gap-2.5">
             <div className="stars">{renderStars(review.rating)}</div>
           
           </div>
         </div>
-        <div>  <span className="text-xs text-center self-end md:text-sm">{review.date}</span></div>
+        <div>  <span className="text-xs text-grey text-center self-end md:text-sm">{review.date}</span></div>
         {/* <div className='text-start'>
           <p className="text-xs text-right text-[#00000090] md:text-sm md:text-end">{review.type}</p>
         </div> */}
       </div>
     
-      <p className="mt-5 break-all leading-tight text-xs md:text-sm">{review.content}</p>
+      <p className="mt-5 break-all text-grey leading-tight text-xs md:text-sm">{review.content}</p>
     </article>
     )
 }

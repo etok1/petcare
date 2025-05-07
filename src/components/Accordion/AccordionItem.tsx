@@ -23,16 +23,17 @@ interface AccordionItemProps {
         className="flex items-center justify-between cursor-pointer"
         onClick={() => onToggle(index)}
       >
-        <h3 className={`text-[clamp(12px,1.5vw,16px)] leading-[clamp(17px,1.5vw,26px)] font-semibold transition-all duration-300 ${isOpen ? "font-extrabold text-greenCustom underline underline-offset-3" : ""}`}>
+        <h3 className={`text-[clamp(12px,1.5vw,16px)] leading-[clamp(17px,1.5vw,26px)] font-semibold transition-all duration-300 ${isOpen ? "font-extrabold text-greenCustom underline underline-offset-3" : "text-grey"}`}>
           {item.question}
         </h3>
         <ChevronUp 
           className={`transition-all duration-500 ease-[cubic-bezier(0,1,0,1)] ${isOpen ? "rotate-180" : ""}`} 
           size={24} 
+          color={'#37474f'}
         />
       </div>
       <div className={`overflow-hidden pt-1 transition-all duration-300 ease-[cubic-bezier(1,0,1,0)] ${isOpen ? "max-h-[1000px]  transition-all duration-300 ease-[cubic-bezier(1,0,1,0)]" : "max-h-0  transition-all duration-300 ease-[cubic-bezier(1,0,1,0)]"}`}>
-        <p className='text-[clamp(10px,1.5vw,16px)] leading-[clamp(20px,1.5vw,40px)] font-semibold'>{item.answer}</p>
+        <p className='text-[clamp(10px,1.5vw,16px)] text-grey leading-[clamp(20px,1.5vw,40px)] font-semibold'>{item.answer}</p>
       </div>
     </div>
     );

@@ -34,10 +34,10 @@ export default function Row({ color, name, text, isActive, icon }: RowProp) {
       </div>
       <div className='w-full flex flex-col md:gap-0 '>
         <div className='w-full flex items-center justify-between'>
-          <h2 className="text-xs sm:text-sm lg:text-base">{name}</h2>
+          <h2 className="text-grey text-xs sm:text-sm lg:text-base">{name}</h2>
           {isActive && (
             <p
-              className='text-[9px] font-semibold py-1 px-2 rounded-full sm:text-xs lg:text-sm'
+              className='text-[9px] text-grey font-semibold py-1 px-2 rounded-full sm:text-xs lg:text-sm'
               style={{
                 backgroundColor: `rgba(${hexToRgb(color)}, 0.1)`,
                 color: `${color}`,
@@ -47,7 +47,7 @@ export default function Row({ color, name, text, isActive, icon }: RowProp) {
             </p>
           )}
         </div>
-        <p style={{ marginTop: !isActive ? "5px" : "" }} className="text-[10px] mt-1 leading-3 sm:text-xs md:mb-2">{text}</p>
+        <p style={{ marginTop: !isActive ? "5px" : "" }} className="text-grey text-[10px] mt-1 leading-3 sm:text-xs md:mb-2">{text}</p>
       </div>
     </div>
   );

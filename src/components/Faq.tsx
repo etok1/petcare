@@ -57,7 +57,7 @@ const questions = [
 export default function Faq() {
     return (
         <div className='mt-12 flex flex-col items-center' style={{padding: '15px'}}>
-            <h1 className='text-center w-1/2 [ font-size: clamp(25px, 1.5vw,  48px)] font-extrabold'>Часто задаваемые вопросы</h1>
+            <h1 className='text-center text-grey w-1/2 [ font-size: clamp(25px, 1.5vw,  48px)] font-extrabold'>Часто задаваемые вопросы</h1>
             <Accordion data={questions} />
         </div>
     )
