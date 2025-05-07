@@ -5,6 +5,7 @@ import Review from "./Reviews/Review";
 import { useEffect, useState } from "react";
 // @ts-ignore
 import { db } from "../firebaseConfig";
+import { Loading } from './Loading';
 
 export interface commentProps {
     id: string;
@@ -13,17 +14,18 @@ export interface commentProps {
     date: Timestamp | string | null,
     type: string,
     content: string,
-  }
+}
 
 
  function Reviews() {
     const [comments, setComments] = useState<any[]>([]);
     const [visibleComments, setVisibleComments] = useState(6)
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('')
+    const [error, setError] = useState<any>()
 
 
 useEffect(() => {
+  try{
     const q = query(
       collection(db, "reviews"),
       orderBy("date", "asc")
@@ -43,9 +45,13 @@ useEffect(() => {
       setLoading(false);
     });
 
-
     return () => unsubscribe();
-  }, []); 
+  }catch (error){
+    console.error(error);
+      setError(error)
+      setLoading(false)
+  }
+}, []); 
 
 
   const loadMore = () => {
@@ -59,8 +65,9 @@ useEffect(() => {
         }}>
             <Form/>
             <section className='mt-[50px]'>
-                <h1 className='text-xl text-grey sm:text-2xl'>{comments.length} {comments.length === 1 ? 'отзыв' : 'отзыва'}</h1>
-                {loading && <p className='text-base font-poppins'>Загружается! Секунду!</p>}
+                {loading && (<Loading />)}
+                {!loading && <h1 className='text-xl text-grey sm:text-2xl'>{comments.length} {comments.length === 1 ? 'отзыв' : 'отзыва'}</h1>}
+                
                 <div className='w-full mt-11 flex flex-wrap justify-center gap-[50px]'>
                     {comments.slice(0, visibleComments).map((review:any, index: number) => (
                         <Review key={index} review={review}/>

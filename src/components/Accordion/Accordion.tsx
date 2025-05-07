@@ -12,7 +12,7 @@ export function Accordion({ data }: { data: { question: string; answer: string }
     };
   
     return (
-      <div className='mt-12 flex flex-col flex-wrap items-end max-w-[800px] mb-2'>
+      <div className='mt-12 flex flex-col flex-wrap items-center max-w-[800px] mb-2'>
         {data.map((item, index) => (
           <AccordionItem
             key={index}

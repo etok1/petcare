@@ -95,7 +95,7 @@ export default function Form() {
                 type="text"
                 name="author"
                 value={newReview.author}
-                className="w-full p-2 border border-form-border rounded"
+                className="w-full p-2 border border-form-border rounded bg-white"
                 required 
                 onChange={(e) => handleChange('author', e.target.value)} 
               />

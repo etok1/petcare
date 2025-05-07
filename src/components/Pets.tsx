@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db, fetchImages } from "../firebaseConfig";
 import { data } from 'react-router-dom';
+import { Loading } from './Loading';
 
 
 
@@ -63,6 +64,7 @@ export default function Pets() {
   const [isFilterVisible, setFilterVisible] = useState(true);
   const [visibleItems, setVisibleItems] = useState(6)
   const [error, setError] = useState()
+  const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState({
     category: '',
     sex: '',
@@ -76,14 +78,18 @@ export default function Pets() {
   
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       try {
+        
         const querySnapshot = await getDocs(collection(db, "pets"));
         const data = querySnapshot.docs.map(doc => doc.data());
         const petsData = data[0].pets
         setItems({pets: petsData});
         setFilteredItems({pets: petsData});
+        setLoading(false)
       } catch (error) {
         console.error("Error fetching pets data:", error);
+        setLoading(false)
       }
     };
      console.log(data)
@@ -155,23 +161,25 @@ export default function Pets() {
           ))}
         </div>
       </section>
+      {loading && (<div className='flex flex-col items-center mt-20'><Loading /></div>)}
       <section className='w-full mt-[150px] pt-12 flex flex-col justify-between gap-12 border-t border-gray-200 lg:flex-row'>
+        {!loading &&
         <div className='flex-[35%] '>  
-        <button className='block mb-4 py-2 px-4 bg-greenCustom text-white border-none rounded-lg cursor-pointer text-sm font-semibold focus:outline-none active:outline-none' onClick={toggleFilter}>
+          <button className='block mb-4 py-2 px-4 bg-greenCustom text-white border-none rounded-lg cursor-pointer text-sm font-semibold focus:outline-none active:outline-none' onClick={toggleFilter}>
               {isFilterVisible ? "Скрыть фильтр" : "Показать фильтр"}
           </button>
           <aside className={`sticky top-0 transition-all duration-300 ease ${isFilterVisible ? 'block translate-y-0' : 'translate-y-[-50%] hidden pointer-events-none transition-all duration-300 ease-in'}`}>
             <Filter handleSubmitFilter={applyFilters}/>
           </aside>
-        </div>
+        </div>}
         <div className="flex flex-col gap-6">
-          <h3 className='text-lg text-grey'>Показано {Math.min(visibleItems, filteredItems.pets.length)} из {filteredItems.pets.length} животных</h3>
-        {filteredItems.pets.length > 0 && filteredItems.pets.slice(0, visibleItems).map((pet) => {
-          const petImage = images[pet.id - 1]; 
-          return (
-            <CardPet key={pet.id} item={pet} img={petImage} />
-          );
-        })}
+          {!loading && <h3 className='text-lg text-grey'>Показано {Math.min(visibleItems, filteredItems.pets.length)} из {filteredItems.pets.length} животных</h3>}
+          {filteredItems.pets.length > 0 && filteredItems.pets.slice(0, visibleItems).map((pet) => {
+            const petImage = images[pet.id - 1]; 
+            return (
+              <CardPet key={pet.id} item={pet} img={petImage} />
+            );
+          })}
             {filteredItems.pets.length > visibleItems && (
               <div className="mt-10 flex justify-center">
                 <button onClick={loadMore} className="button">
