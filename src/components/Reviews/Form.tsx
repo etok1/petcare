@@ -55,7 +55,6 @@ export default function Form() {
       }
 
       setNewReview({...newReview, [field]: value });
-      console.log(field, value);
      
     }
 
@@ -76,7 +75,6 @@ export default function Form() {
           date: null,
           content: '',
         });
-        console.log('Document written with ID: ', docRef.id);
       }catch (err: any){
         console.error('Error adding document:', err.message);
       }

@@ -2,6 +2,7 @@ import React from 'react';
 import { ChartNoAxesCombined, Dog, Users } from "lucide-react";
 import Mission from './Mission'
 import Reason from './Reason'
+import ScrollToTop from './ScrollToTop';
 
 const missions = [
   {
@@ -42,6 +43,7 @@ const reasons = [
 export default function Home() {
   return (
     <div className="font-comfortaa">
+           
       <section className="relative h-[85vh] overflow-hidden">
         <img 
           src="/images/home1.webp" 
@@ -86,6 +88,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <ScrollToTop />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-// import CardPet from "./CardPet/CardPet";
 import React from 'react';
 import Filter from "./Filter";
 import CardPet from "./Pets/CardPet";
@@ -10,8 +9,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { db, fetchImages } from "../firebaseConfig";
-import { data } from 'react-router-dom';
 import { Loading } from './Loading';
+import ScrollToTop from './ScrollToTop';
 
 
 
@@ -63,7 +62,7 @@ export default function Pets() {
   const [images, setImages] = useState<string[]>([]);
   const [isFilterVisible, setFilterVisible] = useState(true);
   const [visibleItems, setVisibleItems] = useState(6)
-  const [error, setError] = useState()
+  const [error, setError] = useState<any>()
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState({
     category: '',
@@ -88,11 +87,10 @@ export default function Pets() {
         setFilteredItems({pets: petsData});
         setLoading(false)
       } catch (error) {
-        console.error("Error fetching pets data:", error);
+        setError(error)
         setLoading(false)
       }
     };
-     console.log(data)
     
     const getImages = async () => {
       const images = await fetchImages();
@@ -111,13 +109,9 @@ export default function Pets() {
       const matchesSex = filter.sex === '' || item.sex.toLowerCase() === filter.sex;
       const matchesAgeRange = filter.ageRange === '' || checkAgeRange(petAge, filter.ageRange);
       const matchesShelter = filter.shelter === '' || item.shelter === filter.shelter;
-      console.log('Category filter:', filter.category, 'Species:', item.species);
-      console.log('sex filter:', filter.sex, 'sex:', item.sex);
-      console.log('Filtered:', matchesCategory, matchesSex, matchesAgeRange, matchesShelter);
       return matchesCategory && matchesSex && matchesAgeRange && matchesShelter;
     });
   
-    console.log('Filtered Pets:', filtered);
     setFilteredItems({ pets: filtered });
   }, [filter]);
 
@@ -135,7 +129,6 @@ export default function Pets() {
   }
 
   const checkAgeRange = (age:number | null, ageRange:string) => {
-    console.log(ageRange, age + 'thius is age')
     if (!ageRange || ageRange === '') return true;
     if (age === null) return false;
     if(ageRange === '7+') return age > 7
@@ -189,6 +182,7 @@ export default function Pets() {
             )}
           </div>
       </section>
+      <ScrollToTop />
     </div>
   );
 }

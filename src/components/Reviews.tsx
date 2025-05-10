@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 // @ts-ignore
 import { db } from "../firebaseConfig";
 import { Loading } from './Loading';
+import ScrollToTop from './ScrollToTop';
 
 export interface commentProps {
     id: string;
@@ -41,7 +42,6 @@ useEffect(() => {
         });
       });
       setComments(commentsArray);
-      console.log(commentsArray);
       setLoading(false);
     });
 
@@ -73,7 +73,7 @@ useEffect(() => {
                         <Review key={index} review={review}/>
                     ))}
                 </div>
-                {comments.length > 6 && (
+                {comments.length > visibleComments && (
                   <div className="mt-10 flex justify-center">
                     <button onClick={loadMore} className="button">
                       Загрузить больше
@@ -81,6 +81,7 @@ useEffect(() => {
                   </div>
                 )}
             </section>
+               <ScrollToTop />
         </div>
     )
 }

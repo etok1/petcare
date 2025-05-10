@@ -142,8 +142,8 @@ export default function MySlider() {
   return (
     <div className='container'  style={{ width: "90%", margin: "0 auto", marginTop: "55px" }}>
       <Slider {...settings}>
-        {methods.map((method) => (
-          <Slide
+        {methods.map((method, index) => (
+          <Slide key={index}
             title={method.title}
             color={method.color}
             reasons={method.reasons}

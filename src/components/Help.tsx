@@ -3,6 +3,7 @@ import Goal from './Goal';
 import MySlider from "./Slider/Slider";
 import { Flower2, Heart, Earth, Sun } from "lucide-react";
 import { NavLink } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 const goals = [
   {
@@ -24,6 +25,25 @@ const goals = [
 ];
 
 export default function Home() {
+const issues = [
+  {
+    title: "Перенаселение приютов",
+    text: "Многие приюты сталкиваются с проблемой перенаселения, из-за чего животным не хватает должного внимания и заботы."
+  },
+  {
+    title: "Недостаток ресурсов",
+    text: "Финансовая поддержка и ресурсы ограничены, что затрудняет обеспечение питомцев всем необходимым."
+  },
+  {
+    title: "Необходимость в помощи с усыновлением",
+    text: "Многие животные остаются в приютах на длительное время из-за трудности нахождения новых владельцев."
+  },
+  {
+    title: "Проблемы со здоровьем",
+    text: "Животные часто поступают в приюты в плохом состоянии, требуя немалых затрат на лечение и восстановление."
+  }
+]
+
   return (
     <div style={{padding: '15px'}}>
       <section className='my-[50px] mx-auto p-6 max-w-[90%] w-full h-full bg-greenCustom flex flex-col items-start gap-8 rounded-md lg:flex-row md:w-fill md:gap-12'>
@@ -74,32 +94,15 @@ export default function Home() {
           прошлого, получит шанс на лучшее будущее. Мы стремимся:
         </p>
         <div className='mt-[100px] grid grid-cols-2 grid-rows-2 gap-x-[30px] gap-y-[50px]'>
-          {goals.map((goal) => (
-            <Goal svg={goal.svg} text={goal.text} />
+          {goals.map((goal, index) => (
+            <Goal key={index} svg={goal.svg} text={goal.text} />
           ))}
         </div>
       </section>
       <section className="mt-[150px] flex flex-col items-center">
       <h2 className="text-xl font-extrabold text-brown tracking-wide text-center relative before:absolute before:w-full before:h-1 before:bg-brown before:bottom-[-10px] before:left-1/2 before:-translate-x-1/2 sm:text-2xl md:text-3xl lg:text-[40px] xl:text-5xl">Проблемы</h2>
       <ol className="mt-[50px] w-[90%] list-decimal list-inside text-brown text-2xl leading-relaxed lg:flex lg:flex-col lg:justify-center lg:items-start lg:my[50px] lg:mx-[40px] lg:max-w-[950px] ">
-        {[
-          {
-            title: "Перенаселение приютов",
-            text: "Многие приюты сталкиваются с проблемой перенаселения, из-за чего животным не хватает должного внимания и заботы."
-          },
-          {
-            title: "Недостаток ресурсов",
-            text: "Финансовая поддержка и ресурсы ограничены, что затрудняет обеспечение питомцев всем необходимым."
-          },
-          {
-            title: "Необходимость в помощи с усыновлением",
-            text: "Многие животные остаются в приютах на длительное время из-за трудности нахождения новых владельцев."
-          },
-          {
-            title: "Проблемы со здоровьем",
-            text: "Животные часто поступают в приюты в плохом состоянии, требуя немалых затрат на лечение и восстановление."
-          }
-        ].map((item, index) => (
+        {issues.map((item, index) => (
           <li key={index} className="mb-2 text-[10px] leading-4 text-start sm:text-sm sm:leading-[22px] sm:mb-4 md:text-lg md:leading-[26px] md:mb-5 lg:text-xl lg:leading-[1.3] lg:mb-6">
             <strong>{item.title}:</strong> {item.text}
           </li>
@@ -114,6 +117,7 @@ export default function Home() {
         </p>
         <MySlider />
       </section>
+         <ScrollToTop />
     </div>
   );
 }

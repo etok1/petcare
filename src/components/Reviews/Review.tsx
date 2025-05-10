@@ -40,9 +40,6 @@ export default function Review ({review}:ReviewProps) {
           </div>
         </div>
         <div>  <span className="text-xs text-grey text-center self-end md:text-sm">{review.date}</span></div>
-        {/* <div className='text-start'>
-          <p className="text-xs text-right text-[#00000090] md:text-sm md:text-end">{review.type}</p>
-        </div> */}
       </div>
     
       <p className="mt-5 break-all text-grey leading-tight text-xs md:text-sm">{review.content}</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Instagram, Search } from "lucide-react";
 
 export default function Desktop() {
@@ -71,18 +71,18 @@ export default function Desktop() {
       </nav>
 
       <div className="flex items-center gap-6 mt-4">
-  <NavLink to="">
-    <button className="button">
-      <Instagram size={20} />
-      Instagram
-    </button>
-  </NavLink>
-  <NavLink to="/pets">
-    <button className=" button">
-      <Search size={20} />
-      Поиск питомцев
-    </button>
-  </NavLink>
+      <Link to="https://www.instagram.com/petcare.jardem?igsh=MXF1Yzk3MGJieW8ydg==" target='_blank'>
+        <button className="button">
+          <Instagram size={20} />
+          Instagram
+        </button>
+      </Link>
+      <NavLink to="/pets">
+        <button className="button">
+          <Search size={20} />
+          Поиск питомцев
+        </button>
+      </NavLink>
 </div>
     </>
     )

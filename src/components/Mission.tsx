@@ -7,7 +7,6 @@ interface MissionProp {
 }
 
 export default function Mission({ img, text, index }: MissionProp) {
-  console.log(index)
   return (
     <div
     className={`relative w-full flex flex-col items-start gap-8 sm:flex-row md:flex-row md:justify-center 

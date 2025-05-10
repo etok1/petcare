@@ -22,9 +22,9 @@ export function Accordion({ data }: { data: { question: string; answer: string }
             onToggle={toggle}
           />
         ))}
-        <p className='self-end text-grey [font-size: clamp(12px, 1.5vw, 18px)] [ line-height: clamp(16px, 1.5vw, 26px)] font-extrabold mt-3' >
+        <p className='self-end text-grey [font-size: clamp(10px, 1.5vw, 18px)] [ line-height: clamp(16px, 1.5vw, 26px)] font-extrabold mt-3' >
           Остались вопросы? Напишите
-          <Link className='no-underline text-greenCustom' to='#' target="blank"> нам</Link>
+          <Link className='no-underline text-greenCustom' to='https://www.instagram.com/petcare.jardem?igsh=MXF1Yzk3MGJieW8ydg==' target="blank"> нам</Link>
         </p>
       </div>
     );
