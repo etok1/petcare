@@ -3,6 +3,7 @@ import { ChartNoAxesCombined, Dog, Users } from "lucide-react";
 import Mission from './Mission'
 import Reason from './Reason'
 import ScrollToTop from './ScrollToTop';
+import { Link } from 'react-router-dom';
 
 const missions = [
   {
@@ -60,9 +61,9 @@ export default function Home() {
             <p className="text-white text-sm font-medium font-exo w-[80%] leading-[23px] md:text-base md:w-full lg:text-lg lg:w-full">
               Волонтерство в приютах — это не только помощь животным, но и вклад в улучшение общества и развитие самих волонтеров. Мы верим, что каждое животное имеет право на любовь и заботу, и наша миссия — помочь им найти свой дом и обеспечить будущее.
             </p>
-            <button className="button w-[50vw] font-exo py-3 text-xs sm:text-sm md:text-lg md:w-[70vw] lg:w-full lg:text-xl">
+            <Link to='https://www.instagram.com/petcare.jardem/?igsh=MXF1Yzk3MGJieW8ydg%3D%3D#' target='_blank'><button className="button w-[50vw] font-exo py-3 text-xs sm:text-sm md:text-lg md:w-[70vw] lg:w-full lg:text-xl">
               Приютить пушистика
-            </button>
+            </button></Link>
           </div>  
         </div>
       </section>

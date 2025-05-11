@@ -48,7 +48,7 @@ const issues = [
     <div style={{padding: '15px'}}>
       <section className='my-[50px] mx-auto p-6 max-w-[90%] w-full h-full bg-greenCustom flex flex-col items-start gap-8 rounded-md lg:flex-row md:w-fill md:gap-12'>
           <img
-            src="/images/pets1.webp"
+            src="/images/pets1.jpg"
             alt="pets1"
             width="100%"
             className="rounded-md w-full h-[300px] sm:h-[400px] object-cover"

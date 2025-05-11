@@ -11,6 +11,7 @@ import {
 import { db, fetchImages } from "../firebaseConfig";
 import { Loading } from './Loading';
 import ScrollToTop from './ScrollToTop';
+import { Modal } from './Modal';
 
 
 
@@ -71,6 +72,12 @@ export default function Pets() {
     shelter: '',
   })
 
+  const [isOpenModal, setIsOpenModal] = useState(true)
+
+const onCloseModal = () => {
+  setIsOpenModal(false)
+}
+
   const toggleFilter = () => {
     setFilterVisible((prev) => !prev);
   };
@@ -108,7 +115,7 @@ export default function Pets() {
       const matchesCategory = filter.category === '' || item.species === filter.category;
       const matchesSex = filter.sex === '' || item.sex.toLowerCase() === filter.sex;
       const matchesAgeRange = filter.ageRange === '' || checkAgeRange(petAge, filter.ageRange);
-      const matchesShelter = filter.shelter === '' || item.shelter === filter.shelter;
+      const matchesShelter = filter.shelter === '' || item.shelter.toLowerCase() === filter.shelter.toLowerCase();
       return matchesCategory && matchesSex && matchesAgeRange && matchesShelter;
     });
   
@@ -143,6 +150,8 @@ export default function Pets() {
 
   return (
     <div className='mt-12 flex flex-col items-center ' style={{padding: '15px'}}>
+      <Modal isOpen={isOpenModal} onClose={onCloseModal}/>
+     {isOpenModal && <div className='fixed inset-0 bg-black bg-opacity-50 z-[10010]'></div>} 
       <section className='m-auto text-center'>
         <h1 className='text-2xl text-brown md:text-4xl'>Как забрать питомца из приюта?</h1>
         <p className='mt-5 text-sm font-medium text-gray-500 md:text-base'>
@@ -167,10 +176,10 @@ export default function Pets() {
         </div>}
         <div className="flex flex-col gap-6">
           {!loading && <h3 className='text-lg text-grey'>Показано {Math.min(visibleItems, filteredItems.pets.length)} из {filteredItems.pets.length} животных</h3>}
-          {filteredItems.pets.length > 0 && filteredItems.pets.slice(0, visibleItems).map((pet) => {
+          {filteredItems.pets.length > 0 && filteredItems.pets.slice(0, visibleItems).map((pet, index) => {
             const petImage = images[pet.id - 1]; 
             return (
-              <CardPet key={pet.id} item={pet} img={petImage} />
+              <CardPet  key={`${pet.id}-${pet.name}`} item={pet} img={petImage} />
             );
           })}
             {filteredItems.pets.length > visibleItems && (
@@ -183,6 +192,7 @@ export default function Pets() {
           </div>
       </section>
       <ScrollToTop />
+
     </div>
   );
 }
